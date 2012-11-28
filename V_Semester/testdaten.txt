@@ -1,0 +1,62 @@
+20
+Ariu, Lieselotte
+1000905
+20
+Ariu, Lieselotte
+1000905
+150
+Baehr, Sabine
+1000908
+10
+Baehr, Sabine
+1000908
+200
+Baehr, Sabine
+1000908
+7.50
+Barrrein, Friedlind
+1000935
+12.50
+Beetz, Andrea
+1000911
+13.20
+Boerkircher, Helmut
+1000906
+10
+Braun, Elke
+1000902
+20.50
+Dannenmayer, Prof. Bernd
+1000920
+100
+Detzel, Prof. Dr. Martin
+1000916
+10
+Grimm, Prof. Klaus
+1000933
+15
+Gruen, Prof. Dr. Markus
+1000945
+5
+Gruen, Prof. Dr. Markus
+1000945
+15
+Gruen, Prof. Dr. Markus
+1000945
+150
+Hochdoerffer, Prof. Dr. Wolfgang
+1000915
+15
+Huf, Prof. Dr. Stefan
+1000939
+5
+Kortschak, Prof. Hans-Peter
+1000910
+110
+Kurz, Gudrun
+1000913
+10
+Lehmeier, Prof. Peter
+1000904
+25
+

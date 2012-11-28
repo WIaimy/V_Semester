@@ -1,0 +1,80 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+	<!-- Developement-Einstellungen -->
+	<persistence-unit name="ba-ka" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	
+		<!--
+			Zusaetzlich sind folgende Filtermöglichkeiten pro Persistence-Unit
+			OPTIONAL konfigurierbar:
+			[einzelne Klassen]
+			<class>%Package%.%Klasse%</class>
+			<class>%Package%.%Klasse%</class>
+			<class>%Package%.%Klasse%</class>
+			
+			[ganze JAR-Dateien]
+			WICHTIGER HINWEIS: Die Konfiguration funktioniert NICHT bei EAR-
+			Strukturen in Verzeichnisform (ANT-Task: "explode"), da es einen
+			Fehler in der JBoss-Implementierung gibt, die eine falsche Auf-
+			lösung des Pfades zur Folge hat. 
+			Der Einsatz im ARGON2-Umfeld ist aus diesem Grunde untersagt und
+			wird nur aus Vollstaendigkeitsgruenden an dieser Stelle dokumen-
+			tiert.
+			<jar-file>../argon2-single.jar</jar-file>
+		-->
+		<properties>
+			<!--
+				Weitere Dialecte koennen dem Package "org.hibernate.dialect" in
+				der Datei "hibernate.jar" (lib-Verzeichnis des Projektes) ent-
+				nommen werden. Jede darin befindliche Klasse stellt eine auf die
+				jeweilige Datenbank(version) optimierte Implementierung dar und
+				kann in der "persistence.xml" referenziert/verwendet werden. Per
+				10/2008 verwendete Dialecte sind:
+				- Oracle: org.hibernate.dialect.Oracle10gDialect
+				- HSQL:   org.hibernate.dialect.HSQLDialect
+				- MySQL:  org.hibernate.dialect.MySQL5Dialect
+			-->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.HSQLDialect" />
+			<!--
+				Folgende Hibernate-Funktionalitaeten stehen fuer dem Parameter
+				"hibernate.hbm2ddl.auto" zur Verfuegung:
+				- "update":
+				Aktualisierung des Datenbankschemas
+				- "validate":
+				Bei Hochfahren ueberprueft Hibernate auschliesslich die Konsis-
+				tenz des DB-Schemas und gibt entsprechende Fehler aus, wenn
+				Unstimmigkeiten zum erwarteten Konstrukt (in Java erstellte
+				Entitaeten und sonstige DB-Schema-definierende Konstrukte)
+				vorliegen.  
+				
+				==== WICHTIGER HINWEIS ==== 
+				Nachfolgende Parameter sind bei Produktionsrollouts zu vermeiden!
+				- "create": (WICHTIGEN HINWEIS beachten!)
+				Neuerstellung von Datenobjekten. Sollte diese bereits existie-
+				ren, wird ein entsprechender Fehler ausgegeben.
+				- "create-drop": (WICHTIGEN HINWEIS beachten!)
+				Loeschen bestehender Datenobjekte mit anschliessender Neuer-
+				stellung. ACHTUNG: Die Loeschaktion wird auch beim Herunter-
+				fahren des JBoss-AS ausgefuehrt. Wenn dieses Verhalten uner-
+				wuenscht ist, dann ist der JBoss-Prozess zu "killen".
+			-->
+			<property name="hibernate.connection.driver_class"
+			value="org.hsqldb.jdbcDriver" />
+			<property name="hibernate.connection.url" value="jdbc:hsqldb:."/>
+			<property name="hibernate.connection.username" value="sa"/>
+			<property name="hibernate.connection.password" value=""/>
+			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.show_sql" value="true" />
+
+			<!--
+				EntityUtils erwartet stets den Suffix "EntityManagerFactory".
+				Dieser ist bei JEDER Konfiguration zu verwendet. 
+			-->
+		</properties>
+
+	</persistence-unit>
+
+</persistence>
